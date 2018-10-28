@@ -27,6 +27,9 @@ public class GameBoard
         setupPieces();
     }
 
+    /**
+     * Setup all Pieces for the Game
+     */
     public void setupPieces()
     {
         setP1Pieces();
@@ -34,16 +37,22 @@ public class GameBoard
         setPieceVectors();
     }
 
+    /**
+     * Preset Pieces for Player 1
+     */
     public void setP1Pieces()
     {
+        //Create a copy of gameboard
         Piece[][] board = this.gameBoardArray;
 
+        //Fill board with pieces
         for(int i = 0; i < board.length; i++)
         {
             Piece pawn = new Pawn(i, 6, this.game.p1);
             board[i][6] = pawn;
         }
 
+        //Assign Pieces to correct rows and columns of the board
         Piece rook = new Rook(0, 7, this.game.p1);
         Piece rook2 = new Rook(7, 7, this.game.p1);
 
@@ -57,15 +66,21 @@ public class GameBoard
         King king = new King(4, 7, this.game.p1);
     }
 
+    /**
+     * Preset Pieces for Player 2
+     */
     public void setP2Pieces()
     {
+        //Create a copy of gameboard
         Piece[][] board = this.gameBoardArray;
 
+        //Fill board with pieces
         for(int i = 0; i < 8; i++)
         {
             Piece pawn = new Pawn(i, 1, this.game.p2);
         }
 
+        //Assign Pieces to correct rows and columns of the board
         Piece topRook = new Rook(0, 0, this.game.p2);
         Piece bottomRook = new Rook(7, 0, this.game.p2);
 
@@ -79,7 +94,7 @@ public class GameBoard
         King king = new King(4, 0, this.game.p2);
     }
 
-    //Set Piece Vector Positions
+    //Set Vector Positions for Pieces Based on Color
     public void setPieceVectors()
     {
         for(int i = 0; i < 8; i++)
