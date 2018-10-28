@@ -17,16 +17,6 @@ public class GameBoardGUI
         CG.game();
     }
 
-    public synchronized void waitForInput()
-    {
-        while(!endOfTurn)
-        {
-            try{
-                wait();
-            } catch (InterruptedException e){ e.printStackTrace();}
-        }
-    }
-
     /**
      * Instantiates the GUI.
      */
@@ -41,6 +31,22 @@ public class GameBoardGUI
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
         });
+    }
+
+    public synchronized void waitForInput()
+    {
+        while(!endOfTurn)
+        {
+            try{
+                wait();
+            } catch (InterruptedException e){ e.printStackTrace();}
+        }
+    }
+
+    public synchronized  void notifyInput()
+    {
+        endOfTurn = true;
+        notifyAll();
     }
 }
 
