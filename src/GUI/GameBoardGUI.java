@@ -1,9 +1,6 @@
 package GUI;
 
 import Game.Game;
-import Game.Player;
-import Pieces.Piece;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,8 +11,7 @@ public class GameBoardGUI
     Game game;
     boolean endOfTurn = false;
 
-
-    public static void main(String[] args) throws InterruptedException
+    public static void main(String[] args)
     {
         ChessGame CG = new ChessGame();
         CG.game();
@@ -32,24 +28,25 @@ public class GameBoardGUI
     }
 
     /**
-     * Initializes the GUI.
+     * Instantiates the GUI.
      */
     public GameBoardGUI() {
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                JFrame frame = new JFrame("Chess");
-                frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                frame.setLayout(new BorderLayout());
-                ChessGUI window = new ChessGUI();
-                frame.add(window);
-                frame.pack();
-                frame.setLocationRelativeTo(null);
-                frame.setVisible(true);
-            }
+        EventQueue.invokeLater(() -> {
+            JFrame frame = new JFrame("Chess");
+            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            frame.setLayout(new BorderLayout());
+            ChessGUI window = new ChessGUI();
+            frame.add(window);
+            frame.pack();
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
         });
     }
 }
+
+/**
+ * Action Listener that Listens to What Square is Clicked On the Board
+ */
 class MyActionListener implements ActionListener {
 
     @Override
