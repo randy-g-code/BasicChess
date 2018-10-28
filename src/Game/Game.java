@@ -20,6 +20,7 @@ public class Game
         p2 = new Player(PlayerColor.BLACK, false);
         p1.game = this;
         p2.game = this;
+        board.setupPieces();
     }
 
 }

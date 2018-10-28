@@ -8,7 +8,6 @@ public class Player
     public boolean turnPlayer;
 
     /**
-     *
      * @param color assigned color for player
      * @param turnPlayer determines if it's the player's turn or not
      */
@@ -18,4 +17,8 @@ public class Player
         this.turnPlayer = turnPlayer;
     }
 
+    public boolean isTurn()
+    {
+        return turnPlayer;
+    }
 }
