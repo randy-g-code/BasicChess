@@ -22,10 +22,11 @@ public class GameBoardGUI
      */
     public GameBoardGUI() {
         EventQueue.invokeLater(() -> {
-            JFrame frame = new JFrame("Chess");
+            JFrame frame = new JFrame("Basic Chess - Randy Gopaul");
             frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
             frame.setLayout(new BorderLayout());
             ChessGUI window = new ChessGUI();
+            frame.setJMenuBar(window.createMenuBar(frame));
             frame.add(window);
             frame.pack();
             frame.setLocationRelativeTo(null);
